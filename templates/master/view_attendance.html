@@ -1,0 +1,84 @@
+{% extends 'partials/base.html' %}
+{% load static %} 
+{% block title %} View Attendance {% endblock %} 
+{% block content %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Attendance</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">View Attendance</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="container mt-5">
+    <form method="get" id="filter-form">
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="month">Month:</label>
+          <select id="month" name="month" class="form-control">
+            {% for month_num, month_name in month_choices %}
+            <option value="{{ month_num }}" {% if month_num == selected_month %}selected{% endif %}>{{ month_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="year">Year:</label>
+          <select id="year" name="year" class="form-control">
+            {% for year_num in year_choices %}
+            <option value="{{ year_num }}" {% if year_num == selected_year %}selected{% endif %}>{{ year_num }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-3 mt-4">
+          <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+      </div>
+    </form>
+    <div id="accordion">
+      {% for username, leaves in user_leaves %}
+      <div class="card">
+        <div class="card-header" id="heading{{ forloop.counter }}">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+              {{ username }} - Total: {{ leaves|length }}
+            </button>
+          </h5>
+        </div>
+
+        <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="heading{{ forloop.counter }}" data-parent="#accordion">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Leave Type</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for leave in leaves %}
+                <tr>
+                  <td>{{ leave.date }}</td>
+                  <td>{{ leave.leave_type }}</td>
+                  <td>{{ leave.remarks }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+  $('#accordion').on('shown.bs.collapse', function () {
+    $(this).find('.table').DataTable();
+  });
+</script>
+{% endblock %}

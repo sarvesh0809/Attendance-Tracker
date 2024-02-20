@@ -1,0 +1,48 @@
+{% extends 'partials/base.html' %}
+{% load static %} {% block title %}
+Dashboard {% endblock %} {% block content %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div>
+  <!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+      <!-- Left side columns -->
+      <div class="col-lg-12">
+        <div class="row">
+          <!--  -->
+          <div class="col-xxl-4 col-md-6">
+            <a href="{% url 'view_attendance'%}">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <div class="d-flex align-items-center">                    
+                    </div>
+                    <div class="ps-3">
+                      <h6>Today's Absentees <strong>90</strong></h6>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <!--  -->
+        </div>
+      </div>
+      <!-- End Left side columns -->
+    </div>
+  </section>
+</main>
+<!-- End #main -->
+
+{% endblock %}

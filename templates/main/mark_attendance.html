@@ -1,0 +1,61 @@
+{% extends 'partials/base.html' %}
+{% load static %} 
+{% block title %} Mark Attendance/Absentee {% endblock %} 
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<main id="main" class="main">
+  <div class="container mt-5">
+    <div class="card">
+
+        <h5 class="card-title m-3">Mark Attendance/Absentee</h5>
+
+      <div class="card-body">
+        <form method="post" action="" id="leave-form">
+          {% csrf_token %}
+          <div class="form-group mb-3">
+            <label class="form-check-label mb-2" for="user">Select User/Employee</label>
+            <input type="text" id="user" name="employee_id" class="form-control" list="user-list" placeholder="Search for user/employee" required>
+            <datalist id="user-list">
+              {% for employee in employees %}
+              <option value="{{ employee.user.user.first_name }}-{{ employee.user.user.last_name }}" data-value="{{employee.user.user.username}}">{{ employee.user.user.first_name }}-{{ employee.user.user.last_name }}</option>
+              {% endfor %}
+            </datalist>
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-check-label mb-2" for="leave_type">Type</label>
+            <select id="leave_type" name="leave_type" class="form-control" required>
+              <option value="">Select Type</option>
+              {% for leave_type in leave_types %}
+              <option value="{{ leave_type.id }}">{{ leave_type.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-check-label mb-2">Date Option:</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="date_option" id="today" value="today" checked>
+              <label class="form-check-label mb-2" for="today">Today's Date</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="date_option" id="date_range" value="date_range">
+              <label class="form-check-label mb-2" for="date_range">Date Range</label>
+            </div>
+          </div>
+          <div class="form-group mb-3" id="date-range-fields" style="display: none;">
+            <label class="form-check-label mb-2" for="start_date">Start Date</label>
+            <input type="date" id="start_date" name="start_date" class="form-control">
+            <label class="form-check-label mb-2" for="end_date">End Date</label>
+            <input type="date" id="end_date" name="end_date" class="form-control">
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-check-label mb-2" for="remarks">Remarks</label>
+            <textarea id="remarks" name="remarks" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mt-4">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="{% static 'js/mark_attendance.js' %}"></script>
+{% endblock %}
