@@ -13,30 +13,100 @@ Dashboard {% endblock %} {% block content %}
   </div>
   <!-- End Page Title -->
 
-  <section class="section dashboard">
-    <div class="row">
-      <!-- Left side columns -->
-      <div class="col-lg-12">
-        <div class="row">
-          <!--  -->
-          <div class="col-xxl-4 col-md-6">
-            <a href="{% url 'view_attendance'%}">
-              <div class="card info-card sales-card">
-                <div class="card-body">
-                  <h5 class="card-title"></h5>
-                  <div class="d-flex align-items-center">                    
-                    </div>
-                    <div class="ps-3">
-                      <h6>Today's Absentees <strong>90</strong></h6>
-                      
-                    </div>
-                  </div>
+  <section class="section dashboard dashboard-background">
+  <div class="row">
+    <!-- Left side columns -->
+    <div class="col-lg-12">
+      <div class="row">
+
+        <!-- Today's Absentees Card -->
+        <div class="col-xxl-4 col-md-6">
+          <a href="{% url 'view_attendance'%}">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="d-flex align-items-center">
+                  <!-- Content for Today's Absentees Card -->
+                </div>
+                <div class="ps-3">
+                  <h6>Today's Absentees <strong>90</strong></h6>
                 </div>
               </div>
-            </a>
-          </div>
-          
-          <!--  -->
+            </div>
+          </a>
+        </div>
+
+        <!-- Mark Attendance Card -->
+        <div class="col-xxl-4 col-md-6">
+          <!-- <a href="{% url 'view_attendance'%}"> -->
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="d-flex align-items-center">
+                  <!-- Content for Mark Attendance Card -->
+                </div>
+                <div class="ps-3">
+                  <h6>Mark Attendance</h6>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Create Employee Card -->
+        <div class="col-xxl-4 col-md-6">
+          <!-- <a href="{% url 'view_attendance'%}"> -->
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="d-flex align-items-center">
+                  <!-- Content for Create Employee Card -->
+                </div>
+                <div class="ps-3">
+                  <h6>Create Employee </h6>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- View Report Card -->
+        <div class="col-xxl-4 col-md-6">
+          <!-- <a href="{% url 'view_attendance'%}"> -->
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="d-flex align-items-center">
+                  <!-- Content for View Report Card -->
+                </div>
+                <div class="ps-3">
+                  <h6>View Report</h6>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- View Employee Card -->
+        <div class="col-xxl-4 col-md-6">
+          <!-- <a href="{% url 'view_attendance'%}"> -->
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="d-flex align-items-center">
+                  <!-- Content for View Employee Card -->
+                </div>
+                <div class="ps-3">
+                  <h6>View Employee</h6>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         </div>
       </div>
       <!-- End Left side columns -->
