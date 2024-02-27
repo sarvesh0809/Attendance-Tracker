@@ -1,6 +1,22 @@
 {% extends 'partials/base.html' %}
 {% load static %} {% block title %}
 Dashboard {% endblock %} {% block content %}
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right,#FDFCFB , #E2D1C3);
+  }
+
+  main {
+    background-color: transparent; /* Set the background color for the main container to transparent */
+  }
+
+  .card {
+    background-color: white; /* Set the background color for the cards (adjust as needed) */
+  }
+</style>
+
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Dashboard</h1>
