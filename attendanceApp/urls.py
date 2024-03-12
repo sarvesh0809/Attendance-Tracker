@@ -11,7 +11,10 @@ urlpatterns = [
     path('mark_attendance/',views.mark_attendance, name='mark_attendance'),
     path('save-leave/', views.save_leave, name='save_leave'),
     path('create_employee/', views.create_employee, name='create_employee'),
+    path('holiday_lists/', views.holiday_lists, name='holiday_lists'),
+     path('apple/', views.apples, name='apple'),
 ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)

@@ -58,3 +58,10 @@ class HolidayList(models.Model):
     remarks = models.TextField(blank=True)
     def __str__(self):
         return f'{self.occasion}'
+    
+class Apple(models.Model):
+    date = models.DateField()
+    occasion = models.CharField(max_length=100,blank=True)
+    remarks = models.TextField(blank=True)
+    def __str__(self):
+        return f'{self.occasion}'

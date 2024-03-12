@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LogoutView
 from django.utils import timezone
-from .models import Employee,LeaveType,Leave
+from .models import Employee, HolidayList,LeaveType,Leave,Apple
 from datetime import datetime, timedelta
 from .models import UserProfile, Department, Designation,UserType
 
@@ -24,7 +24,7 @@ def view_attendance(request):
     year_choices = range(2020, timezone.now().year + 1)
     
     leaves = Leave.objects.filter(date__year=selected_year, date__month=selected_month)
-
+    print(leaves)
     # Group leaves by user
     user_leaves = defaultdict(list)
     for leave in leaves:
@@ -134,3 +134,19 @@ def create_employee(request):
         departments = Department.objects.all()
         designations = Designation.objects.all()
         return render(request, 'main/create_employee.html', {'user_types': user_types, 'departments': departments, 'designations': designations})
+
+def holiday_lists(request):
+    lists = HolidayList.objects.all()
+    print(lists)
+    context={
+        'lists': lists
+    }  
+    return render(request, 'main/holidays_lists.html', context)
+
+def apples(request):
+    lists = Apple.objects.all()
+    # print(lists)
+    context={
+        'lists': lists
+    }  
+    return render(request, 'main/apple.html', context)

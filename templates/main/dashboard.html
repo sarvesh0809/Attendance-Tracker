@@ -54,7 +54,7 @@ Dashboard {% endblock %} {% block content %}
 
         <!-- Mark Attendance Card -->
         <div class="col-xxl-4 col-md-6">
-          <!-- <a href="{% url 'view_attendance'%}"> -->
+          <a href="{% url 'mark_attendance'%}">
             <div class="card info-card sales-card">
               <div class="card-body">
                 <h5 class="card-title"></h5>
@@ -71,7 +71,7 @@ Dashboard {% endblock %} {% block content %}
 
         <!-- Create Employee Card -->
         <div class="col-xxl-4 col-md-6">
-          <!-- <a href="{% url 'view_attendance'%}"> -->
+         <a href="{% url 'create_employee'%}">
             <div class="card info-card sales-card">
               <div class="card-body">
                 <h5 class="card-title"></h5>
@@ -88,7 +88,7 @@ Dashboard {% endblock %} {% block content %}
 
         <!-- View Report Card -->
         <div class="col-xxl-4 col-md-6">
-          <!-- <a href="{% url 'view_attendance'%}"> -->
+          <a href="{% url 'save_leave'%}">
             <div class="card info-card sales-card">
               <div class="card-body">
                 <h5 class="card-title"></h5>
@@ -105,7 +105,7 @@ Dashboard {% endblock %} {% block content %}
 
         <!-- View Employee Card -->
         <div class="col-xxl-4 col-md-6">
-          <!-- <a href="{% url 'view_attendance'%}"> -->
+          <a href="{% url 'view_attendance'%}">
             <div class="card info-card sales-card">
               <div class="card-body">
                 <h5 class="card-title"></h5>
@@ -119,6 +119,41 @@ Dashboard {% endblock %} {% block content %}
             </div>
           </a>
         </div>
+        
+<!-- View Hoilday list Card -->
+<div class="col-xxl-4 col-md-6">
+  <a href="{% url 'holiday_lists'%}">
+    <div class="card info-card sales-card">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="d-flex align-items-center">
+          <!-- Content for Today's Absentees Card -->
+        </div>
+        <div class="ps-3">
+          <h6>Holiday List</h6>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<!-- View Apple Card
+<div class="col-xxl-4 col-md-6">
+  <a href="{% url 'apple'%}">
+    <div class="card info-card sales-card">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="d-flex align-items-center">
+          
+        </div>
+        <div class="ps-3">
+          <h6>Apple</h6>
+        </div>
+      </div>
+    </div>
+  </a>
+</div> -->
+
       </div>
     </div>
   </div>

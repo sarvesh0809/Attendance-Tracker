@@ -1,0 +1,25 @@
+{% extends 'partials/base.html' %}
+{% load static %} 
+{% block title %} Mark Attendance/Absentee {% endblock %} 
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<main id="main" class="main">
+  <h1>Holidays_lists</h1> 
+  <div class="container mt-5">
+    <div class="card">
+
+      <h5 class="card-title m-3">View All Holidays lists</h5>
+      <table>
+     <tr>
+     {% for holi in lists %}
+     <td> {{ forloop.counter }}</td>
+     <td> {{holi.occasion}}</td>
+    </tr>
+      {% endfor %}</table>
+
+      
+    </div>
+  </div>
+</main>
+<script src="{% static 'js/mark_attendance.js' %}"></script>
+{% endblock %}
